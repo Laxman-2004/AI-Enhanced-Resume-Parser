@@ -1,10 +1,3 @@
-import os
-import pickle
-
-MODEL_PATH = os.path.join("models", "matcher.pkl")
-
-with open(MODEL_PATH, "rb") as f:
-    matcher = pickle.load(f)
 
 from flask import Flask, render_template, request
 from nlp.resume_parser import extract_text_from_pdf
