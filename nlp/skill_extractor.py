@@ -19,4 +19,3 @@ def match(resume_skills, job_skills):
     vec2 = np.ones((1, len(job_skills)))
     return cosine_similarity(vec1, vec2)[0][0]
 
-pickle.dump(match, open("models/matcher.pkl", "wb"))
