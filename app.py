@@ -15,7 +15,12 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-matcher = pickle.load(open("models/matcher.pkl", "rb"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "models", "matcher.pkl")
+
+with open(MODEL_PATH, "rb") as f:
+    matcher = pickle.load(f)
+
 JOB_SKILLS = ["python", "machine learning", "nlp", "flask", "mongodb", "git"]
 
 @app.route("/", methods=["GET", "POST"])
